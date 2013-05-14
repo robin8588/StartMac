@@ -8,21 +8,18 @@
 
 #include <stdio.h>
 
-void singTheSong(int numberOfBottles){
-    if(numberOfBottles==0){
-        printf("There are simply no more bottles of beer on the wall.\n");
-    }else{
-        printf("%d bottles of beer on the wall. %d bottles of beer.\n",numberOfBottles,numberOfBottles);
-        int oneFewer=numberOfBottles-1;
-        printf("Take one down,pass it around,%d bottles of beer on the wall.\n",oneFewer);
-        singTheSong(oneFewer);
-        printf("Put a bootle in the recycling,%d empty bottles in the bin.\n",numberOfBottles);
-    }
+float remainingAngel(float angleA,float angleB)
+{
+    return 180.0-angleA-angleB;
 }
+
 
 int main(int argc, const char * argv[])
 {
-    singTheSong(99);
+    float angleA=30.0;
+    float angleB=60.0;
+    float angleC=remainingAngel(angleA, angleB);
+    printf("The third angle is %.2f\n",angleC);
     return 0;
 }
 
