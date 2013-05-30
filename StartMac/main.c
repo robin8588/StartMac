@@ -7,29 +7,15 @@
 //
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+#include <time.h>
 
 int main(int argc, const char * argv[])
 {
-    float f;
-    printf("A float Consumes %zu bytes\n",sizeof(f));
-    
-    short s = 0;
-    unsigned short us=0;
-    printf("A short Consumes %zu bytes\n",sizeof(s));
-    printf("A unsigned short Consumes %zu bytes\n",sizeof(us));
-    do {
-        if((--s)>0){
-            printf("the min short is %d\n",++s);
-            break;
-        }
-    } while (s<0);
-
-    s--;
-    us--;
-    printf("the max short is %d\n",s);
-    printf("the max unsigned short is %u\n",us);
+    long secondsSince1970=time(NULL);
+    long after4millionseconds =4000000+secondsSince1970;
+    struct tm whatDate;
+    localtime_r(&after4millionseconds, &whatDate);
+    printf("The date in 4 million seconds will be %d - %d -%d  %d : %d : %d",whatDate.tm_year+1900,whatDate.tm_mon+1,whatDate.tm_mday,whatDate.tm_hour,whatDate.tm_min,whatDate.tm_sec);
     return 0;
 }
 
