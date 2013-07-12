@@ -11,11 +11,11 @@
 
 int main(int argc, const char * argv[])
 {
-    float *startOfBuffer;
-    
-    startOfBuffer =malloc(1000*sizeof(float));
-    free(startOfBuffer);
-    startOfBuffer=NULL;
+    unsigned long l=0;
+    for (int i=0; i<64; i++) {
+        l=(l<<1)+1;
+    }
+    printf("l is %lu\n",l);
     return 0;
 }
 
